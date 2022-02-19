@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/sjob.css' %}">
+</head>
+<body>
+<h1>these jobs are available in Pune</h1><hr>
+<img src="{% static 'images/pune1.png' %}">
+<img src="{% static 'images/pune2.png' %}">
+<img src="{% static 'images/pune3.png' %}">
+{% if punejob_list %}
+<table>
+    <thead>
+    <th>date</th>
+    <th>company</th>
+    <th>title</th>
+    <th>eligibility</th>
+    <th>address</th>
+    <th>email</th>
+    <th>phone</th>
+    </thead>
+    {% for data in punejob_list %}
+    <tr>
+        <td>{{data.date}}</td>
+        <td>{{data.company}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.eligibility}}</td>
+        <td>{{data.address}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phone}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h3>Requested data not available</h3>
+{% endif %}
+</body>
+</html>
